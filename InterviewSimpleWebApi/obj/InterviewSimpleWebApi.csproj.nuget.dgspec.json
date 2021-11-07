@@ -1,21 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\work\\mosl\\interviews\\InterviewSimpleWebApi\\InterviewSimpleWebApi\\InterviewSimpleWebApi.csproj": {}
+    "C:\\InterviewMaterial\\CgiInterviews\\InterviewSimpleWebApi\\InterviewSimpleWebApi.csproj": {}
   },
   "projects": {
-    "C:\\work\\mosl\\interviews\\InterviewSimpleWebApi\\InterviewSimpleWebApi\\InterviewSimpleWebApi.csproj": {
+    "C:\\InterviewMaterial\\CgiInterviews\\InterviewSimpleWebApi\\InterviewSimpleWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\work\\mosl\\interviews\\InterviewSimpleWebApi\\InterviewSimpleWebApi\\InterviewSimpleWebApi.csproj",
+        "projectUniqueName": "C:\\InterviewMaterial\\CgiInterviews\\InterviewSimpleWebApi\\InterviewSimpleWebApi.csproj",
         "projectName": "InterviewSimpleWebApi",
-        "projectPath": "C:\\work\\mosl\\interviews\\InterviewSimpleWebApi\\InterviewSimpleWebApi\\InterviewSimpleWebApi.csproj",
-        "packagesPath": "C:\\Users\\Ramos\\.nuget\\packages\\",
-        "outputPath": "C:\\work\\mosl\\interviews\\InterviewSimpleWebApi\\InterviewSimpleWebApi\\obj\\",
+        "projectPath": "C:\\InterviewMaterial\\CgiInterviews\\InterviewSimpleWebApi\\InterviewSimpleWebApi.csproj",
+        "packagesPath": "C:\\Users\\Diogo Costa\\.nuget\\packages\\",
+        "outputPath": "C:\\InterviewMaterial\\CgiInterviews\\InterviewSimpleWebApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\work\\mosl\\NuGet.Config",
-          "C:\\Users\\Ramos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Diogo Costa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -23,8 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/MOServices/_packaging/MOServices/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -83,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

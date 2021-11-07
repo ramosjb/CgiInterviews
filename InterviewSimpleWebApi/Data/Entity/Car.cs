@@ -16,8 +16,5 @@ namespace InterviewSimpleWebApi.Data.Entity
         public long Kilometers { get; set; }
 
         public string LicensePlate { get; set; }
-
-        public RentableCar RentableCar { get; set; }
-
     }
 }

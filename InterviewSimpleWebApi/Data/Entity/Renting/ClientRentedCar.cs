@@ -24,14 +24,12 @@ namespace InterviewSimpleWebApi.Data.Entity
 
         public Client Client { get; set; }
 
-        [ForeignKey("RentableCar")]
-        public long RentableCarId { get; set; }
+        [ForeignKey("Car")]
+        public long CarId { get; set; }
 
-        public RentableCar RentableCar { get; set; }
+        public Car Car { get; set; }
 
         [DefaultValue(true)]
-
         public bool OngoingRental { get; set; }
-
     }
 }
