@@ -13,5 +13,7 @@ namespace InterviewSimpleWebApi.Data.Entity
         public long CarId { get; set; }
 
         public Car Car { get; set; }
+
+        public ClientRentedCar ClientRentedCar { get; set; }
     }
 }

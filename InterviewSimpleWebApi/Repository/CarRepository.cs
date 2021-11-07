@@ -1,5 +1,7 @@
 ﻿using InterviewSimpleWebApi.Data;
 using InterviewSimpleWebApi.Data.Entity;
+using InterviewSimpleWebApi.Exceptions;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,16 +28,26 @@ namespace InterviewSimpleWebApi.Repository
             return _carDbContext.Cars.Where(c => c.Brand.ToUpper().Equals(brand.ToUpper())).ToList();
         }
 
-        public List<Car> FindAllRentable(string brand)
+        public List<Car> FindAllRentable()
         {
-            return _carDbContext.Cars.Where(c => c.Brand.ToUpper().Equals(brand.ToUpper())).ToList();
+            return _carDbContext.Cars.ToList();
+        }
+
+        public List<Car> FindAllAvailableForRent()
+        {
+            return _carDbContext.Cars
+                .Include(c => c.RentableCar)
+                .ThenInclude(r => r.ClientRentedCar)
+                .Where(rentedCar => rentedCar.RentableCar != default)
+                .Where(rentedCar => rentedCar.RentableCar.ClientRentedCar == default)
+                .ToList();
         }
 
         public Car Get(long id)
         {
             Car car = _carDbContext.Cars.SingleOrDefault(c => c.Id.Equals(id));
             if (car == default)
-                throw new DllNotFoundException($"No car found in database for the given id {id}");
+                throw new NotFoundException($"No car found in database for the given id {id}");
 
             return car;
         }
@@ -44,7 +56,7 @@ namespace InterviewSimpleWebApi.Repository
         {
             Car car = _carDbContext.Cars.SingleOrDefault(c => c.LicensePlate.Equals(licensePlate));
             if (car == default)
-                throw new DllNotFoundException($"No car found in database for the given licensePlate {licensePlate}");
+                throw new NotFoundException($"No car found in database for the given licensePlate {licensePlate}");
 
             return car;
         }
@@ -65,7 +77,7 @@ namespace InterviewSimpleWebApi.Repository
         {
             RentableCar r = _carDbContext.RentableCars.SingleOrDefault(r => r.Id.Equals(id));
             if (r == default)
-                throw new DllNotFoundException($"No RentableCar found in database for the given id {id}");
+                throw new NotFoundException($"No RentableCar found in database for the given id {id}");
             _carDbContext.RentableCars.Remove(r);
             _carDbContext.SaveChanges();
         }
@@ -78,6 +90,21 @@ namespace InterviewSimpleWebApi.Repository
             carToSetAsRentable.Kilometers = car.Kilometers;
             carToSetAsRentable.LicensePlate = car.LicensePlate;
             _carDbContext.SaveChanges();
+        }
+
+        public Car Add(Car newCar)
+        {
+            try
+            {
+                Get(newCar.LicensePlate);
+                throw new LicensePlateAlreadyInUseException(newCar.LicensePlate);
+            }
+            catch (NotFoundException)
+            {
+                _carDbContext.Cars.Add(newCar);
+                _carDbContext.SaveChanges();
+                return newCar;
+            }
         }
     }
 }

@@ -22,7 +22,14 @@ namespace InterviewSimpleWebApi.Repository
         /// Find all existent Cars that are rentable in db
         /// </summary>
         /// <returns></returns>
-        public List<Car> FindAllRentable(string brand);
+        public List<Car> FindAllRentable();
+
+
+        /// <summary>
+        /// Find all existent Cars that are available to be rented in db
+        /// </summary>
+        /// <returns></returns>
+        public List<Car> FindAllAvailableForRent();
 
         /// <summary>
         /// Find a Car for the given id if any
@@ -37,6 +44,13 @@ namespace InterviewSimpleWebApi.Repository
         /// </summary>
         /// <returns></returns>
         public Car Get(string licensePlate);
+
+        /// <summary>
+        /// Method to Add a new Car into db from the given newCar
+        /// If the license plate is already present in another Car throws a LicensePlateAlreadyInUseException 
+        /// </summary>
+        /// <returns></returns>
+        public Car Add(Car newCar);
 
         /// <summary>
         /// Update the given Car

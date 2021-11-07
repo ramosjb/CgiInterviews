@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace InterviewSimpleWebApi.Data.Entity
 {
@@ -20,6 +16,8 @@ namespace InterviewSimpleWebApi.Data.Entity
         public long Kilometers { get; set; }
 
         public string LicensePlate { get; set; }
+
+        public RentableCar RentableCar { get; set; }
 
     }
 }

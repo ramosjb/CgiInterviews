@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InterviewSimpleWebApi.Data.Entity
 {
-    [Index("IX_LicenseNumber", "LicenseNumber", IsUnique = true)]
+    [Index("LicenseNumber", IsUnique = true)]
     public class Client
     {
         [Key]

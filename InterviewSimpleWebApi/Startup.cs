@@ -1,4 +1,5 @@
 using InterviewSimpleWebApi.Data;
+using InterviewSimpleWebApi.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -37,6 +38,8 @@ namespace InterviewSimpleWebApi
 
 
             services.AddDbContext<CarRentalContext>(options => options.UseInMemoryDatabase(databaseName: "RentalCarDatabase"));
+
+            services.AddScoped<ICarRepository, CarRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
